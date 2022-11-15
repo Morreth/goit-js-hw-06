@@ -1,22 +1,13 @@
-const form = document.querySelector(".login-form");
-console.dir(form);
+const inputValue = document.querySelector("#font-size-control");
+console.log(inputValue);
+const text = document.querySelector("#text");
+console.log(text);
 
-form.addEventListener("submit", onSubmitForm);
+inputValue.addEventListener("input", biggerFontSizeText);
 
-function onSubmitForm(event) {
-  const emptyString = "";
-  const formElements = event.currentTarget.elements;
-  const mail = formElements.email.value;
-  const password = formElements.password.value;
-  const formData = {
-    mail,
-    password,
-  };
-  event.preventDefault();
-
-  if (mail === emptyString || password === emptyString) {
-    alert("Все поля должны быть заполнены");
+function biggerFontSizeText(event) {
+  console.log(event.currentTarget.value);
+  if (event.currentTarget.value) {
+    text.style.fontSize = event.currentTarget.value + "px";
   }
-  console.log(formData);
-  form.reset();
 }
